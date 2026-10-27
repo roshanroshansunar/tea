@@ -3,389 +3,171 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Chiya Pirim – Tea, food and Friday poetry in Shankhamul</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+<title>Hisui Tea Room – Book a tea session</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
-:root{
-  --wood:#3a2314; --wood-deep:#1f120a; --glow:#ffc978; --cream:#f5e6cc; --muted:#d3b996; --amber:#f0a94b; --chalk:#e9efe2;
-  --display:"Tiro Devanagari Hindi","Noto Serif Devanagari",Georgia,serif;
-  --body:"Mukta","Noto Sans Devanagari",system-ui,sans-serif;
-  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8 0.012' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-  color-scheme:dark;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--wood:#33200f;--wood-deep:#1a0f08}}
-:root[data-theme="dark"]{--wood:#33200f;--wood-deep:#1a0f08}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+:root{--bg:#e6ece4;--surface:#f5f8f3;--ink:#1c2e29;--muted:#587068;--line:#c3d0c6;--accent:#2f6b57;--accent-ink:#f5f8f3;--warn:#a2433a;
+--serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;--sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121c19;--surface:#1a2823;--ink:#e3ece6;--muted:#93a89f;--line:#2f433c;--accent:#7cc4a8;--accent-ink:#10201a;--warn:#e08a80}}
+:root[data-theme="dark"]{--bg:#121c19;--surface:#1a2823;--ink:#e3ece6;--muted:#93a89f;--line:#2f433c;--accent:#7cc4a8;--accent-ink:#10201a;--warn:#e08a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;color:var(--cream);font:400 1.125rem/1.7 var(--body);background:var(--wood);background-image:var(--grain);overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:repeating-linear-gradient(90deg,transparent 0 117px,rgba(0,0,0,.45) 117px 120px)}
-main,header,footer,section{position:relative;z-index:1}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
-.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;margin:0}
-h2{font-size:clamp(2rem,5vw,3.1rem);margin-bottom:1rem;text-shadow:0 0 24px rgba(255,201,120,.35)}
-p{margin:0 0 1rem;max-width:38rem}
-
-/* warm light veil */
-.veil{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:0;transition:opacity 1.2s;background:radial-gradient(circle at 70% 35%,transparent 0,rgba(8,4,1,.88) 55%)}
-body.dim .veil{opacity:1}
-.dimbtn{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:10;background:rgba(31,18,10,.85);color:var(--glow);border:1.5px solid var(--glow);border-radius:999px;padding:.55rem 1.1rem;font:600 1rem var(--body);cursor:pointer}
-
-nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.2rem 0}
-nav b{font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--glow)}
-nav div{display:flex;gap:1.4rem}
-nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--cream)}
-
-/* hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:1rem;min-height:calc(100svh - 5rem);padding-bottom:3rem}
-.hero h1{font-size:clamp(4rem,13vw,9.5rem);color:var(--glow);text-shadow:0 0 30px rgba(255,201,120,.55),0 0 80px rgba(240,169,75,.35);animation:flick 5s infinite}
-.hero .latin{font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3.5vw,2.2rem);margin:.4rem 0 1.2rem}
-.hero p{font-size:1.2rem;color:var(--muted)}
-.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
-.btn{display:inline-block;padding:.75rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:600;border:2px solid var(--glow)}
-.btn.main{background:var(--glow);color:var(--wood-deep)}
-.scene{width:100%;max-width:30rem;justify-self:center;overflow:visible}
-.lamp{transform-origin:200px 0;animation:swing 6s ease-in-out infinite}
-.cone{animation:flick 5s infinite}
-.halo{animation:pulse 4s ease-in-out infinite;transform-origin:200px 380px}
-.steam path{fill:none;stroke:#fff3dc;stroke-width:7;stroke-linecap:round;filter:url(#blur);opacity:0;animation:steam 4.5s ease-in infinite}
-.steam path:nth-child(2){animation-delay:1.4s}.steam path:nth-child(3){animation-delay:2.8s}
-@keyframes swing{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
-@keyframes flick{0%,100%{opacity:1}42%{opacity:.88}46%{opacity:1}70%{opacity:.93}}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
-@keyframes steam{0%{transform:translateY(20px) scaleX(.9);opacity:0}25%{opacity:.7}100%{transform:translateY(-75px) scaleX(1.25);opacity:0}}
-.motes i{position:fixed;z-index:2;width:4px;height:4px;border-radius:50%;background:var(--glow);box-shadow:0 0 8px 2px rgba(255,201,120,.7);pointer-events:none;opacity:0;animation:drift linear infinite}
-@keyframes drift{0%{opacity:0;transform:translate(0,0)}15%{opacity:.8}85%{opacity:.6}100%{opacity:0;transform:translate(var(--dx),-45vh)}}
-
-section{padding:4.5rem 0}
-.board{background:rgba(20,11,5,.55);border:1px solid rgba(255,201,120,.25);border-radius:1rem;box-shadow:0 20px 50px rgba(0,0,0,.45),inset 0 0 60px rgba(0,0,0,.35)}
-
-/* friday */
-.live{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:var(--glow);margin-bottom:1rem}
-.live::before{content:"";width:.7rem;height:.7rem;border-radius:50%;background:#ff6a4d;box-shadow:0 0 0 0 rgba(255,106,77,.8);animation:ping 1.6s infinite}
-@keyframes ping{to{box-shadow:0 0 0 .9rem rgba(255,106,77,0)}}
-.friday .grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
-.poembox{padding:2.5rem 2rem;min-height:15rem;display:flex;flex-direction:column;justify-content:center;text-align:center}
-.poembox q{quotes:none;font-family:var(--display);font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.55;color:var(--glow);transition:opacity 1s}
-.poembox small{display:block;margin-top:1.2rem;color:var(--muted)}
-
-/* menu */
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.5rem;margin-top:1.8rem}
-.menu .board{padding:1.8rem;background-color:rgba(18,28,22,.8)}
-.menu h3{font-size:1.7rem;color:var(--chalk);margin-bottom:.6rem}
-.menu ul{list-style:none;margin:0;padding:0;color:var(--chalk)}
-.menu li{padding:.55rem 0;border-bottom:1px dashed rgba(233,239,226,.35)}
-.menu li span{display:block;font-size:.95rem;opacity:.75}
-.note{color:var(--muted);font-size:.95rem;margin-top:1.2rem}
-
-/* ambience strip */
-.strip{overflow:hidden;margin-top:1.8rem;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.track{display:flex;gap:1.4rem;width:max-content;animation:slide 45s linear infinite}
-.strip:hover .track{animation-play-state:paused}
-@keyframes slide{to{transform:translateX(-50%)}}
-.frame{width:17rem;height:21rem;flex:none;margin:0;padding:.7rem .7rem 0;background:#f2e4c8;border-radius:.3rem;color:#3a2314;box-shadow:0 14px 30px rgba(0,0,0,.5);transform:rotate(var(--r,-1.5deg))}
-.frame:nth-child(even){--r:1.8deg;margin-top:1rem}
-.frame .pic{height:16rem;border-radius:.2rem;display:grid;place-items:center;font-size:4.5rem;background-size:200% 200%;animation:warm 9s ease-in-out infinite alternate;box-shadow:inset 0 0 50px rgba(0,0,0,.4)}
-.frame figcaption{font-family:var(--display);text-align:center;padding:.8rem 0;font-size:1.2rem}
-@keyframes warm{to{background-position:100% 100%}}
-
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;margin-top:1.5rem}
-.facts .board{padding:1.2rem;text-align:center}
-.facts b{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--glow)}
-.facts span{color:var(--muted);font-size:1rem}
-.teas{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem;margin-top:1.5rem}
-.teas .board{padding:1.6rem}
-.teas h3{font-size:1.5rem;color:var(--glow);margin-bottom:.5rem}
-.teas p{color:var(--muted)}
-.teas .btn{font-size:.95rem;padding:.5rem 1.1rem}
-.gi{font-size:2.6rem;line-height:1;margin-bottom:.6rem}
-.dicebox{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.6rem;margin-top:1.5rem;max-width:26rem}
-.dicebox span{color:var(--muted)}
-.dice{font-size:3.6rem;line-height:1;background:#f2e4c8;color:#3a2314;border:0;border-radius:1rem;width:5rem;height:5rem;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.5)}
-.dice:active{transform:rotate(25deg) scale(.95)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans)}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 20px 64px}
+h1{font:700 clamp(2rem,6vw,3.4rem)/1.15 var(--serif);margin:0 0 12px;letter-spacing:.02em}
+h2{font:700 1.25rem/1.3 var(--serif);margin:0 0 14px}
+.lead{max-width:52ch;color:var(--muted);margin:0 0 36px}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+section.step{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;margin-bottom:18px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;justify-content:space-between;gap:16px;text-align:left;width:100%;background:transparent;color:inherit;font:inherit;border:1px solid var(--line);border-radius:6px;padding:14px 16px;cursor:pointer}
+.opt b{font:700 1.05rem var(--serif);display:block}
+.opt small{color:var(--muted)}
+.opt .p{white-space:nowrap;font-weight:500}
+.opt[aria-pressed=true]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+label{display:block;font-weight:500;font-size:.92rem;margin-bottom:6px}
+input,textarea{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;width:100%}
+.f{flex:1 1 200px;margin-bottom:12px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin-top:6px}
+.slot{font:inherit;color:inherit;background:transparent;border:1px solid var(--line);border-radius:6px;padding:9px 0;cursor:pointer}
+.slot[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.slot:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:inherit;font:500 1.2rem var(--sans);cursor:pointer}
+.stepper output{min-width:2ch;text-align:center;font:700 1.3rem var(--serif)}
+.note{color:var(--muted);font-size:.9rem;margin:8px 0 0}
+.err{color:var(--warn);font-size:.9rem;margin:8px 0 0;min-height:1.2em}
+aside{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);background:var(--ink);color:var(--bg);border-radius:6px;padding:22px}
+@media(max-width:820px){aside{position:static}}
+aside h2{margin-bottom:10px}
+aside dl{margin:0 0 16px}
+aside dt{font-size:.85rem;opacity:.7}
+aside dd{margin:0 0 10px;font-weight:500}
+.total{display:flex;justify-content:space-between;border-top:1px solid color-mix(in srgb,var(--bg) 30%,transparent);padding-top:14px;margin-bottom:16px;font:700 1.2rem var(--serif)}
+.go{width:100%;font:700 1rem var(--sans);background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:14px;cursor:pointer}
+.go:disabled{opacity:.45;cursor:not-allowed}
+aside .go{background:var(--bg);color:var(--ink)}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.done{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:32px;max-width:560px}
+.ref{font:700 1.6rem var(--serif);letter-spacing:.08em;margin:6px 0 18px}
+.done .go{max-width:240px}
 [hidden]{display:none!important}
-button.btn{background:transparent;color:var(--cream);font:600 1rem var(--body);cursor:pointer}
-button.btn.main{background:var(--glow);color:var(--wood-deep)}
-label.btn{cursor:pointer}
-.owner{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin:1rem 0}
-#ostat{color:var(--muted)}
-.gal{columns:15rem;column-gap:1rem;margin-top:1.5rem}
-.ph{break-inside:avoid;margin:0 0 1rem;position:relative;background:#f2e4c8;padding:.5rem .5rem .6rem;border-radius:.3rem;box-shadow:0 10px 24px rgba(0,0,0,.5);color:#3a2314}
-.ph img{display:block;width:100%;height:auto;border-radius:.15rem;cursor:zoom-in}
-.ph figcaption{font-family:var(--display);text-align:center;padding-top:.5rem}
-.ph input{width:100%;margin-top:.4rem;padding:.4rem;border:1px solid #b9a07a;border-radius:.3rem;font:inherit;background:#fff8ea;color:#3a2314}
-.del{position:absolute;top:.8rem;right:.8rem;width:2rem;height:2rem;border-radius:50%;border:0;background:rgba(31,18,10,.85);color:#fff;font-size:1.2rem;cursor:pointer}
-.lb{position:fixed;inset:0;z-index:20;background:rgba(10,5,2,.92);display:grid;place-items:center;padding:1rem}
-.lb img{max-width:100%;max-height:92vh;border-radius:.3rem}
-.lb button{position:absolute;top:calc(1rem + env(safe-area-inset-top,0px));right:1rem;width:2.6rem;height:2.6rem;border-radius:50%;border:0;background:var(--glow);color:var(--wood-deep);font-size:1.5rem;cursor:pointer}
-.w{display:inline-block;animation:wave 3.2s ease-in-out infinite;animation-delay:calc(var(--i)*-.2s)}
-.w2{display:inline-block;animation:waveSoft 3.6s ease-in-out infinite;animation-delay:calc(var(--i)*-.28s)}
-@keyframes wave{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-.13em) rotate(-2.5deg)}75%{transform:translateY(.1em) rotate(2.5deg)}}
-@keyframes waveSoft{0%,100%{transform:translateY(0)}50%{transform:translateY(-.14em)}}
-footer{padding:3.5rem 0 5rem;background:rgba(20,11,5,.6)}
-footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem}
-footer h3{font-size:1.5rem;color:var(--glow);margin-bottom:.5rem}
-.tiny{margin-top:2.5rem;color:var(--muted);font-size:.95rem}
-@media (max-width:800px){.hero,.friday .grid{grid-template-columns:1fr}.hero{min-height:auto}.scene{max-width:20rem;order:-1}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}.steam path{opacity:.5}.track{overflow-x:auto}}
 </style>
 </head>
 <body>
-<div class="veil"></div>
-<button class="dimbtn" id="dim" aria-pressed="false">Dim the lights</button>
-<div class="motes" id="motes" aria-hidden="true"></div>
+<div class="wrap">
+  <h1>Hisui Tea Room</h1>
+  <p class="lead">Reserve a seat at our tea counter in Nakameguro. Pick a tasting, choose a time, and we’ll have the kettle ready. Open Tuesday to Sunday, 10:00–19:00.</p>
 
-<header class="wrap">
-  <nav><b>चिया पिरिम</b><div><a href="#about">About</a><a href="#tea">Our tea</a><a href="#friday">Friday poetry</a><a href="#menu">Menu</a><a href="#events">Events</a><a href="#games">Games</a><a href="#vibe">Ambience</a><a href="#photos">Photos</a><a href="#visit">Visit</a></div></nav>
-  <div class="hero">
+  <div id="book" class="grid">
     <div>
-      <h1>चिया पिरिम</h1>
-      <div class="latin">Chiya Pirim</div>
-      <p>A warm wooden corner of Shankhamul, Baneshwor. Slow tea, good food, soft light and poems every Friday.</p>
-      <div class="btns"><a class="btn main" href="#friday">Join Friday kabita</a><a class="btn" href="#visit">Find the café</a></div>
+      <section class="step"><h2>Choose your tea session</h2>
+        <div class="opts" id="exps"></div></section>
+
+      <section class="step"><h2>Pick a date and time</h2>
+        <div class="f" style="max-width:240px"><label for="date">Date</label><input type="date" id="date"></div>
+        <div id="slotWrap" hidden><label>Available times</label><div class="slots" id="slots"></div></div>
+        <p class="err" id="dateErr" role="alert"></p></section>
+
+      <section class="step"><h2>How many guests?</h2>
+        <div class="stepper"><button type="button" id="minus" aria-label="Fewer guests">−</button><output id="guests" aria-live="polite">2</output><button type="button" id="plus" aria-label="More guests">+</button></div>
+        <p class="note">Up to 6 guests per booking. For larger groups, email hello@hisui-tea.example.</p></section>
+
+      <section class="step"><h2>Your details</h2>
+        <div class="row"><div class="f"><label for="name">Name</label><input id="name" autocomplete="name"></div>
+        <div class="f"><label for="email">Email</label><input id="email" type="email" autocomplete="email"></div></div>
+        <label for="notes">Allergies or requests (optional)</label><textarea id="notes" rows="2"></textarea></section>
     </div>
-    <svg class="scene" viewBox="0 0 400 470" role="img" aria-label="A hanging lamp glowing over a steaming cup of tea on a wooden table">
-      <defs>
-        <radialGradient id="hg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffc978" stop-opacity=".75"/><stop offset="1" stop-color="#ffc978" stop-opacity="0"/></radialGradient>
-        <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd58f" stop-opacity=".5"/><stop offset="1" stop-color="#ffd58f" stop-opacity="0"/></linearGradient>
-        <linearGradient id="tb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a4a26"/><stop offset="1" stop-color="#3a2010"/></linearGradient>
-        <filter id="blur"><feGaussianBlur stdDeviation="4"/></filter>
-      </defs>
-      <g class="lamp">
-        <line x1="200" y1="0" x2="200" y2="70" stroke="#c9a46a" stroke-width="3"/>
-        <polygon class="cone" points="150,125 250,125 330,400 70,400" fill="url(#cg)"/>
-        <path d="M150 125 L160 85 Q200 70 240 85 L250 125 Z" fill="#2c3b2f" stroke="#c9a46a" stroke-width="3"/>
-        <ellipse cx="200" cy="128" rx="42" ry="14" fill="#ffd58f" class="cone"/>
-      </g>
-      <ellipse class="halo" cx="200" cy="380" rx="170" ry="90" fill="url(#hg)"/>
-      <rect x="0" y="395" width="400" height="75" fill="url(#tb)"/>
-      <path d="M0 410 H400 M0 435 H400" stroke="#1f120a" stroke-opacity=".5"/>
-      <ellipse cx="200" cy="398" rx="110" ry="20" fill="#e9d6b4"/>
-      <path d="M130 305 H270 Q268 380 200 385 Q132 380 130 305Z" fill="#f2e4c8"/>
-      <path d="M268 322 Q312 318 306 350 Q300 375 262 368" fill="none" stroke="#f2e4c8" stroke-width="12" stroke-linecap="round"/>
-      <ellipse cx="200" cy="305" rx="70" ry="13" fill="#b5702e"/>
-      <ellipse cx="200" cy="305" rx="70" ry="13" fill="none" stroke="#e9d6b4" stroke-width="4"/>
-      <g class="steam"><path d="M175 295 q-18 -30 0 -55 q18 -25 0 -50"/><path d="M200 295 q18 -30 0 -55 q-18 -25 0 -60"/><path d="M225 295 q-18 -30 0 -55 q18 -25 0 -50"/></g>
-    </svg>
+
+    <aside aria-live="polite">
+      <h2>Your booking</h2>
+      <dl>
+        <dt>Session</dt><dd id="sSess">Not chosen yet</dd>
+        <dt>When</dt><dd id="sWhen">Not chosen yet</dd>
+        <dt>Guests</dt><dd id="sGuests">2</dd>
+      </dl>
+      <div class="total"><span>Total</span><span id="sTotal">¥0</span></div>
+      <button class="go" id="confirm" disabled>Confirm booking</button>
+      <p class="note" style="color:inherit;opacity:.7">Pay at the tea room. Free changes up to 24 hours before.</p>
+    </aside>
   </div>
-</header>
 
-<section id="about">
-  <div class="wrap">
-    <h2>About Chiya Pirim</h2>
-    <p>Chiya Pirim is a little tea café in Shankhamul, Baneshwor, made for people who like to slow down. Wooden tables, warm lamps, good food and a pot of tea that is never rushed.</p>
-    <p>It is a place for quiet mornings, long evening talks, and poetry on Fridays.</p>
-    <div class="facts">
-      <div class="board"><b>Tea</b><span>Our special chiya</span></div>
-      <div class="board"><b>Food</b><span>Many varieties</span></div>
-      <div class="board"><b>Poetry</b><span>Every Friday</span></div>
-      <div class="board"><b>Mood</b><span>Aesthetic and calm</span></div>
-    </div>
+  <div id="done" class="done" hidden>
+    <h2>You’re booked in</h2>
+    <p id="doneTxt"></p>
+    <div class="ref" id="ref"></div>
+    <button class="go" id="again">Book another session</button>
   </div>
-</section>
-
-<section id="friday">
-  <div class="wrap grid" style="display:grid">
-    <div class="friday">
-      <div class="live">Live every Friday</div>
-      <h2>Kabita bachan</h2>
-      <p>Our open mic for poetry. Read your own words, share a poem you love, or just sit close with a cup of tea and listen. Everyone is welcome, and every voice is warm in this room.</p>
-      <a class="btn main" href="#visit">Plan your Friday</a>
-    </div>
-    <div class="board poembox" aria-live="polite">
-      <q id="poem"></q><small>Sample lines · open mic · Nepali poetry</small>
-    </div>
-  </div>
-</section>
-
-<section id="tea">
-  <div class="wrap">
-    <h2>Our special tea</h2>
-    <p>The tea is the heart of Chiya Pirim. Every cup is brewed fresh and served hot, with the kind of steam you can warm your hands on.</p>
-    <div class="teas">
-      <div class="board"><h3>Special Chiya</h3><p>The cup people come back for. Ask for the house recipe.</p></div>
-      <div class="board"><h3>Spiced and strong</h3><p>Masala chiya for cold evenings and long conversations.</p></div>
-      <div class="board"><h3>Light and fresh</h3><p>Lemon and herbal cups when you want something gentle.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="menu">
-  <div class="wrap">
-    <h2>Tea first, then everything else</h2>
-    <p>Chiya is what this place is known for. Made fresh and slow, the way it tastes best on a cool Kathmandu evening.</p>
-    <div class="menu">
-      <div class="board"><h3>Chiya</h3><ul>
-        <li>Special Chiya Pirim<span>Our signature house tea</span></li>
-        <li>Masala Chiya<span>Warm spices, strong and sweet</span></li>
-        <li>Milk Tea &amp; Black Tea<span>Classic cups, your way</span></li>
-        <li>Lemon &amp; Herbal Teas<span>Light and refreshing</span></li></ul></div>
-      <div class="board"><h3>Food</h3><ul>
-        <li>Momo<span>Steamed, fried or jhol</span></li>
-        <li>Snacks &amp; Fries<span>Made for sharing over tea</span></li>
-        <li>Sandwiches &amp; Noodles<span>Filling and quick</span></li>
-        <li>Many more varieties<span>Ask what is fresh today</span></li></ul></div>
-    </div>
-    <p class="note">Sample menu. Ask the café for today’s full menu and prices.</p>
-  </div>
-</section>
-
-<section id="games">
-  <div class="wrap">
-    <h2>Play at your table</h2>
-    <p>Tea tastes better with a game going. Grab a deck or a board and play with friends, family or whoever sits down next to you.</p>
-    <div class="teas">
-      <div class="board"><div class="gi">🃏</div><h3>Uno cards</h3><p>Fast, loud and friendly. Perfect for a group of four.</p></div>
-      <div class="board"><div class="gi">🎲</div><h3>Ludo</h3><p>The classic. Race your tokens home between sips of chiya.</p></div>
-      <div class="board"><div class="gi">🎴</div><h3>Many more</h3><p>Plenty of other card and board games. Ask at the counter.</p></div>
-    </div>
-    <div class="board dicebox">
-      <button class="dice" id="dice" aria-label="Roll the dice">⚀</button>
-      <div><b id="dtxt">Feeling lucky?</b><br><span>Tap the dice to roll.</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="vibe">
-  <div class="wrap"><h2>The feeling inside</h2><p>Wood, warm light, soft music and a table with your name on it. Photos of the café will go in these frames.</p></div>
-  <div class="strip"><div class="track" id="track">
-    <figure class="frame"><div class="pic" style="background-image:linear-gradient(135deg,#7a4a26,#e9a24a,#7a4a26)">🍵</div><figcaption>Special chiya</figcaption></figure>
-    <figure class="frame"><div class="pic" style="background-image:linear-gradient(135deg,#2c3b2f,#8fae7a,#2c3b2f)">🪴</div><figcaption>Green corners</figcaption></figure>
-    <figure class="frame"><div class="pic" style="background-image:linear-gradient(135deg,#4a2a1a,#ffc978,#4a2a1a)">🕯️</div><figcaption>Candle-lit evenings</figcaption></figure>
-    <figure class="frame"><div class="pic" style="background-image:linear-gradient(135deg,#5b3a2a,#d98e6a,#5b3a2a)">📖</div><figcaption>Friday poems</figcaption></figure>
-    <figure class="frame"><div class="pic" style="background-image:linear-gradient(135deg,#3a2314,#f0a94b,#3a2314)">🥟</div><figcaption>Fresh momo</figcaption></figure>
-    <figure class="frame"><div class="pic" style="background-image:linear-gradient(135deg,#352a3a,#c98e9a,#352a3a)">🎶</div><figcaption>Easy music</figcaption></figure>
-  </div></div>
-</section>
-
-<section id="events">
-  <div class="wrap">
-    <h2>Events and gatherings</h2>
-    <p>There is always a reason to sit a little longer at Chiya Pirim.</p>
-    <div class="teas">
-      <div class="board"><h3>Friday kabita bachan</h3><p>Live poetry open mic, every Friday. Read, listen, or just sip your tea.</p><a class="btn" href="#friday">See details</a></div>
-      <div class="board"><h3>Friends and small groups</h3><p>Bring your people. Ask us about a cosy table for birthdays and catch-ups.</p><a class="btn" href="#visit">Contact us</a></div>
-      <div class="board"><h3>Game time</h3><p>Uno, Ludo and more, played right at your table over tea.</p><a class="btn" href="#games">See games</a></div>
-    </div>
-      </div>
-</section>
-
-<section id="photos">
-  <div class="wrap">
-    <h2>Photo library</h2>
-    <p>Moments from Chiya Pirim: tea, friends, games and poetry nights.</p>
-    <div class="owner" id="owner" hidden>
-      <label class="btn main" for="pick">Add photos</label><input id="pick" type="file" accept="image/*" multiple hidden>
-      <button class="btn" id="save" hidden>Save to website</button><span id="ostat" role="status"></span>
-    </div>
-    <div class="gal" id="gal"></div>
-    <p class="note" id="empty" hidden>Photos are coming soon.</p>
-  </div>
-</section>
-<div class="lb" id="lb" hidden><img alt=""><button aria-label="Close photo">&times;</button></div>
-<script type="application/json" id="photo-data">[]</script>
-
-<footer id="visit">
-  <div class="wrap">
-    <div class="grid">
-      <div><h3>Find us</h3><p>Chiya Pirim<br>Shankhamul, Baneshwor<br>Kathmandu, Nepal</p>
-        <a class="btn main" href="https://www.google.com/maps/search/?api=1&query=Chiya+Pirim+Shankhamul+Baneshwor+Kathmandu" target="_blank" rel="noopener">Open in Maps</a></div>
-      <div><h3>Hours and contact</h3><p>Open daily, 6:00 AM to 9:00 PM<br>Kabita bachan: every Friday<br>Phone: <a href="tel:+9779745917794">9745917794</a></p><a class="btn main" href="tel:+9779745917794">Call us</a></div>
-      <div><h3>Follow along</h3><p>Photos, poets and Friday news: @chiyapirim</p><p class="note">Replace with your real social links.</p></div>
-    </div>
-    <p class="tiny">© Chiya Pirim · Tea, poems and good company.</p>
-  </div>
-</footer>
+</div>
 
 <script>
-(function(){
-  var SRC='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
-  var photos=[],removed=[],owner=false,assets=null,art=null;
-  try{photos=JSON.parse(document.getElementById('photo-data').textContent)||[]}catch(e){}
-  var gal=document.getElementById('gal'),ostat=document.getElementById('ostat'),saveb=document.getElementById('save'),lb=document.getElementById('lb');
-  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return '&#'+c.charCodeAt(0)+';'})}
-  function stat(t){ostat.textContent=t}
-  function mark(){saveb.hidden=false;saveb.disabled=false;stat('Press "Save to website" to put these changes live.')}
-  function show(p){lb.querySelector('img').src='/_blob/'+p.id;lb.querySelector('img').alt=p.cap||'';lb.hidden=false}
-  lb.addEventListener('click',function(){lb.hidden=true});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.hidden=true});
-  function render(){
-    gal.innerHTML='';document.getElementById('empty').hidden=photos.length>0||owner;
-    photos.forEach(function(p){
-      var f=document.createElement('figure');f.className='ph';
-      var im=document.createElement('img');im.src='/_blob/'+p.id;im.alt=p.cap||'Photo from Chiya Pirim';im.loading='lazy';
-      im.addEventListener('click',function(){show(p)});f.appendChild(im);
-      if(owner){
-        var c=document.createElement('input');c.value=p.cap||'';c.placeholder='Caption';c.setAttribute('aria-label','Caption');
-        c.addEventListener('input',function(){p.cap=c.value;mark()});
-        var d=document.createElement('button');d.className='del';d.textContent='\u00d7';d.setAttribute('aria-label','Delete photo');
-        d.addEventListener('click',function(){photos=photos.filter(function(x){return x!==p});removed.push(p.id);render();mark()});
-        f.appendChild(c);f.appendChild(d);
-      }else if(p.cap){var fc=document.createElement('figcaption');fc.textContent=p.cap;f.appendChild(fc)}
-      gal.appendChild(f);
-    });
-  }
-  render();
-  var t=document.getElementById('track');
-  if(photos.length>=3){t.innerHTML=photos.map(function(p){return '<figure class="frame"><div class="pic" style="background:url(/_blob/'+p.id+') center/cover;animation:none"></div><figcaption>'+esc(p.cap||'Chiya Pirim')+'</figcaption></figure>'}).join('')}
-  t.innerHTML+=t.innerHTML;
-  function shrink(file){return createImageBitmap(file).then(function(bm){var k=Math.min(1,1600/Math.max(bm.width,bm.height)),cv=document.createElement('canvas');cv.width=Math.round(bm.width*k);cv.height=Math.round(bm.height*k);cv.getContext('2d').drawImage(bm,0,0,cv.width,cv.height);return new Promise(function(ok){cv.toBlob(function(b){ok(b||file)},'image/jpeg',.85)})}).catch(function(){return file})}
-  if(window.claude&&claude.use){
-    Promise.all([claude.use('assets').catch(function(){return null}),claude.use('artifact').catch(function(){return null})]).then(function(r){
-      if(!r[0]||!r[1])return;assets=r[0];art=r[1];owner=true;document.getElementById('owner').hidden=false;render();
-      var pick=document.getElementById('pick');
-      pick.addEventListener('change',async function(){
-        var fl=[].slice.call(pick.files);stat('Uploading '+fl.length+' photo(s)...');
-        for(var i=0;i<fl.length;i++){try{var b=await shrink(fl[i]);var up=await assets.upload(b);photos.push({id:up.id,cap:''})}catch(e){stat('Could not upload '+fl[i].name)}}
-        pick.value='';render();mark();
-      });
-      saveb.addEventListener('click',async function(){
-        saveb.disabled=true;stat('Saving...');
-        try{
-          for(var i=0;i<removed.length;i++){try{await assets.delete(removed[i])}catch(e){}}
-          var json=JSON.stringify(photos).replace(/</g,'\\u003c');
-          var html=SRC.replace(/(<script[^>]*id="photo-data"[^>]*>)[\s\S]*?(<\/script>)/,function(m,a,b){return a+json+b});
-          await art.publish(html);
-        }catch(e){if(!e||e.code!=='conflict'){stat('Could not save ('+((e&&e.code)||'error')+'). Try again.');saveb.disabled=false}}
-      });
-    });
-  }
-  var m=document.getElementById('motes');
-  for(var i=0;i<22;i++){var e=document.createElement('i');
-    e.style.left=(Math.random()*100)+'vw';e.style.top=(55+Math.random()*45)+'vh';
-    e.style.setProperty('--dx',(Math.random()*120-60)+'px');
-    e.style.animationDuration=(9+Math.random()*10)+'s';e.style.animationDelay=(-Math.random()*15)+'s';
-    var s=2+Math.random()*3;e.style.width=e.style.height=s+'px';m.appendChild(e);}
-  
-  var lines=['चिया वाफिँदै गर्दा, शब्दहरू पनि न्यानो हुन्छन्।','एक कप चिया, एक पङ्क्ति कविता, र शुक्रबारको साँझ।','बोल्न नसकेका कुरा, कविताले भनिदिन्छ।'];
-  var p=document.getElementById('poem'),k=0;p.textContent=lines[0];
-  setInterval(function(){p.style.opacity=0;setTimeout(function(){k=(k+1)%lines.length;p.textContent=lines[k];p.style.opacity=1;},1000);},5000);
-  (function(){
-    var seg=window.Intl&&Intl.Segmenter?new Intl.Segmenter('hi',{granularity:'grapheme'}):null;
-    function gr(s){return seg?Array.from(seg.segment(s),function(x){return x.segment}):Array.from(s)}
-    function wave(el,mode){
-      if(el.children.length)return;
-      var txt=el.textContent,i=0;if(mode==='letter')el.setAttribute('aria-label',txt);
-      el.textContent='';
-      txt.split(/\s+/).filter(Boolean).forEach(function(w,wi,arr){
-        var wd=document.createElement('span');wd.style.cssText='display:inline-block;white-space:nowrap';
-        if(mode==='word'){wd.className='w2';wd.style.setProperty('--i',wi);wd.textContent=w}
-        else{wd.setAttribute('aria-hidden','true');gr(w).forEach(function(g){var s=document.createElement('span');s.className='w';s.style.setProperty('--i',i++);s.textContent=g;wd.appendChild(s)})}
-        el.appendChild(wd);if(wi<arr.length-1)el.appendChild(document.createTextNode(' '));
-      });
-    }
-    document.querySelectorAll('.hero h1,.btn').forEach(function(e){wave(e,'letter')});
-    
-  })();
-  var dc=document.getElementById('dice'),dt=document.getElementById('dtxt'),faces=['\u2680','\u2681','\u2682','\u2683','\u2684','\u2685'];
-  dc.addEventListener('click',function(){var n=0,iv=setInterval(function(){dc.textContent=faces[Math.floor(Math.random()*6)];if(++n>8){clearInterval(iv);var r=Math.floor(Math.random()*6);dc.textContent=faces[r];dt.textContent='You rolled a '+(r+1)+(r==5?'! Ludo start.':'.');}},70);});
-  var b=document.getElementById('dim');
-  b.addEventListener('click',function(){var d=document.body.classList.toggle('dim');b.setAttribute('aria-pressed',d);b.textContent=d?'Lights on':'Dim the lights';});
-})();
+const EXPS=[
+ {n:"Morning sencha flight",d:"Three single-origin sencha, 60 min",p:2800},
+ {n:"Matcha ceremony",d:"Whisk and drink your own bowl, 75 min",p:4500},
+ {n:"Afternoon tea and wagashi",d:"Four teas with seasonal sweets, 90 min",p:6200}
+];
+const TIMES=["10:00","11:30","13:00","14:30","16:00","17:30"];
+const S={exp:-1,date:"",time:"",guests:2};
+const $=id=>document.getElementById(id);
+const yen=n=>"¥"+n.toLocaleString("en-US");
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const taken=(d,t)=>{let h=0;for(const c of d+t)h=(h*31+c.charCodeAt(0))%97;return h%5===0};
+
+$("date").min=iso(new Date());
+
+function drawExps(){
+  $("exps").innerHTML="";
+  EXPS.forEach((e,i)=>{
+    const b=document.createElement("button");
+    b.type="button";b.className="opt";b.setAttribute("aria-pressed",S.exp===i);
+    b.innerHTML="<span><b>"+e.n+"</b><small>"+e.d+"</small></span><span class='p'>"+yen(e.p)+" / guest</span>";
+    b.onclick=()=>{S.exp=i;drawExps();sum()};
+    $("exps").appendChild(b);
+  });
+}
+function drawSlots(){
+  const d=$("date").value;S.time="";$("dateErr").textContent="";
+  if(!d){$("slotWrap").hidden=true;return sum()}
+  const day=new Date(d+"T00:00:00").getDay();
+  if(day===1){$("slotWrap").hidden=true;$("dateErr").textContent="We’re closed on Mondays. Choose another date.";S.date="";return sum()}
+  S.date=d;$("slotWrap").hidden=false;$("slots").innerHTML="";
+  TIMES.forEach(t=>{
+    const b=document.createElement("button");
+    b.type="button";b.className="slot";b.textContent=t;b.disabled=taken(d,t);b.setAttribute("aria-pressed","false");
+    b.onclick=()=>{S.time=t;[...$("slots").children].forEach(x=>x.setAttribute("aria-pressed",x===b));sum()};
+    $("slots").appendChild(b);
+  });
+  sum();
+}
+function valid(){return S.exp>=0&&S.date&&S.time&&$("name").value.trim()&&/^\S+@\S+\.\S+$/.test($("email").value.trim())}
+function sum(){
+  $("sSess").textContent=S.exp>=0?EXPS[S.exp].n:"Not chosen yet";
+  $("sWhen").textContent=S.date&&S.time?new Date(S.date+"T00:00:00").toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"long"})+", "+S.time:"Not chosen yet";
+  $("sGuests").textContent=S.guests+(S.guests===1?" guest":" guests");
+  $("guests").textContent=S.guests;
+  $("sTotal").textContent=yen(S.exp>=0?EXPS[S.exp].p*S.guests:0);
+  $("confirm").disabled=!valid();
+}
+$("date").onchange=drawSlots;
+$("minus").onclick=()=>{S.guests=Math.max(1,S.guests-1);sum()};
+$("plus").onclick=()=>{S.guests=Math.min(6,S.guests+1);sum()};
+["name","email"].forEach(i=>$(i).oninput=sum);
+$("confirm").onclick=()=>{
+  const ref="HT-"+Math.random().toString(36).slice(2,6).toUpperCase()+Math.floor(10+Math.random()*90);
+  $("doneTxt").textContent=EXPS[S.exp].n+" for "+S.guests+(S.guests===1?" guest":" guests")+" on "+$("sWhen").textContent+". A confirmation will be sent to "+$("email").value.trim()+". Your reference:";
+  $("ref").textContent=ref;
+  $("book").hidden=true;$("done").hidden=false;window.scrollTo(0,0);
+};
+$("again").onclick=()=>{
+  S.exp=-1;S.date="";S.time="";S.guests=2;
+  ["date","name","email","notes"].forEach(i=>$(i).value="");
+  $("slotWrap").hidden=true;drawExps();sum();
+  $("done").hidden=true;$("book").hidden=false;
+};
+drawExps();sum();
 </script>
 </body>
 </html>
